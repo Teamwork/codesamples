@@ -1,0 +1,6 @@
+$ curl -s 'https://yoursite.teamwork.com/notebooks.json' 
+--header 'authorization: Basic apikey'   
+--header 'content-type: application/json'   | jq -r '.projects[0]|.notebooks[]|.id' | while read nbid; do curl -s "https://yoursite.teamwork.com/notebooks/${nbid}/comments.json"
+--header 'authorization: Basic apikey'   
+--header 'content-type: application/json'   | jq -r '.comments[]|[.["item-name"],(.["author-firstname"] + " " + .["author-lastname"]),("https://yoursite.teamwork.com/#" + .["comment-link"]),.body]|@csv'; done >> comments.csv; open -a "Microsoft Excel" comments.csv 
+# opening excel this way is macOs specific 
