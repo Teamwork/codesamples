@@ -1,13 +1,38 @@
-$company = "YOUR TEAMWORK SITENAME";
+<?php
+$company = "YOUR_TEAMWORK_SITENAME";
 $key = "YOUR_API_KEY";
-$taskId = 12345;
-$action = "todo_items/".$taskId."/complete.json";
-$channel = curl_init();
-curl_setopt( $channel, CURLOPT_URL, "https://". $company .".teamwork.com/". $action );
-curl_setopt( $channel, CURLOPT_RETURNTRANSFER, 1 );
-curl_setopt($channel, CURLOPT_CUSTOMREQUEST, "PUT");
-curl_setopt( $channel, CURLOPT_HTTPHEADER,
-array( "Authorization: BASIC ". base64_encode( $key .":xxx" ))
+$taskID = 1;
+$action = "todo_items/{$taskID}/complete.json";
+
+$ch = curl_init();
+
+$options = array(
+    CURLOPT_URL => "https://{$company}.teamwork.com/{$action}",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_CUSTOMREQUEST => "PUT",
+    CURLOPT_SSLVERSION => 6,
+    CURLOPT_HTTPHEADER => array( "Authorization: BASIC ". base64_encode($key .":xxx"))
 );
-echo curl_exec ( $channel );
-curl_close ( $channel );
+
+curl_setopt_array($ch, $options);
+
+$result = curl_exec($ch);
+if (curl_error($ch)) {
+    $error_msg = curl_error($ch);
+}
+
+if (isset($error_msg)) {
+    // TODO - Handle cURL error
+}
+
+if ($result !== false) {
+    $response = curl_getinfo($ch, CURLINFO_HTTP_CODE);  
+
+    if ($response == 200) {
+        // TODO - Handle cURL response
+        $obj = json_decode($result);
+        var_dump($obj);
+    }
+}
+
+curl_close($ch);
