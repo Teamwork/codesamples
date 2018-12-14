@@ -2,12 +2,11 @@
 $company = "YOUR_TEAMWORK_SITENAME";
 $key = "YOUR_API_KEY";
 $action = "projects.json";
-$taskListId = 1;
  
 $ch = curl_init();
 
 $options = array(
-    CURLOPT_URL => "https://{$company}.teamwork.com/todo_lists/{$taskListId}/todo_items.json",
+    CURLOPT_URL => "https://{$company}.teamwork.com/{$action}",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_SSLVERSION => 6,
     CURLOPT_HTTPHEADER => array("Authorization: BASIC ". base64_encode($key .":xxx"))
