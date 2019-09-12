@@ -12,8 +12,8 @@ We will be happy to review and add anything that will help others out!
 
 ### You can also find SDK's for our API here:
 * .Net - [https://github.com/teamwork/dotnet](https://github.com/teamwork/dotnet)
-* Coldfusion - [https://github.com/loduis/teamwork.com-project-management](https://github.com/loduis/teamwork.com-project-management)
-* PHP - [https://github.com/Teamwork/TeamworkAPICFC/](https://github.com/Teamwork/TeamworkAPICFC/)
+* Coldfusion - [https://github.com/Teamwork/TeamworkAPICFC/](https://github.com/Teamwork/TeamworkAPICFC/)
+* PHP - [https://github.com/loduis/teamwork.com-project-management](https://github.com/loduis/teamwork.com-project-management)
 * Laravel - [https://github.com/rossedman/teamwork](https://github.com/rossedman/teamwork)
 * Ruby - [https://rubygems.org/gems/teamwork](https://rubygems.org/gems/teamwork)
 
